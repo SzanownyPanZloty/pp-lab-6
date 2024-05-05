@@ -63,4 +63,12 @@ abstract public class Employee implements Employable {
     return this.id;
   }
 
+  public boolean equals(Object obj) {
+    if (obj == null || this == obj) {
+      return false;
+    }
+    Employee employee = (Employee) obj;
+    return this.id == employee.id;
+  }
+
 }
