@@ -26,7 +26,7 @@ public class Main {
       employee.work();
     }
 
-    Worker worker5 = new Worker("John2", 2000.0, 1, "2021-01-01");
+    Worker worker5 = new Worker("John2", 2000.0, 13, "2021-01-01");
 
     // same id below
     Worker worker6 = new Worker("Alice2", 2500.0, 9, "2021-01-02");
@@ -47,6 +47,51 @@ public class Main {
     System.out.println("is worker6 id to woeker7 id: " + worker6.equals(worker7));
     System.out.println("is worker6 id to woeker5 id: " + worker6.equals(worker5));
     System.out.println("is worker6 id to manager2 id: " + worker6.equals(manager2));
+
+    // zad4 start
+    employees.add(worker5);
+    employees.add(worker6);
+    employees.add(worker7);
+    employees.add(manager2);
+
+    Worker worker8 = new Worker("John3", 2000.0, 9, "2021-01-01");
+    Manager manager3 = new Manager("Tom3", 5000.0, 11, "2021-01-05");
+
+    employees.add(worker8);
+    employees.add(manager3);
+
+    /*
+     * zliczą całkowitą sumę pensji wszystkich pracowników,
+     *  zliczą całkowitą sumę pensji wszystkich Manager,
+     *  zliczą całkowitą sumę pensji wszystkich Worker,
+     */
+    Double totalSalary = 0.0;
+    Double totalManagerSalary = 0.0;
+    Double totalWorkerSalary = 0.0;
+
+    for (Employee employee : employees) {
+      totalSalary += employee.getSalary();
+      if (employee instanceof Manager) {
+        totalManagerSalary += employee.getSalary();
+      } else if (employee instanceof Worker) {
+        totalWorkerSalary += employee.getSalary();
+      }
+    }
+
+    System.out.println("Total salary: " + totalSalary);
+    System.out.println("Total manager salary: " + totalManagerSalary);
+    System.out.println("Total worker salary: " + totalWorkerSalary);
+
+    // 3 takie same id wiec wypisze lacznie 6 komunikatow bo kazdy z obiektow ma
+    // takie same id jak 2 inne 3x2=6
+    for (Employee employee : employees) {
+      for (Employee employee2 : employees) {
+        if (employee.equals(employee2) && employee != employee2) {
+          System.out.println(
+              "Duplicated id: " + employee.getId() + " for " + employee.getName() + " same as " + employee2.getName());
+        }
+      }
+    }
 
   }
 }
