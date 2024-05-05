@@ -3,9 +3,9 @@ package company.abstracts;
 import company.interfaces.Employable;
 
 abstract public class Employee implements Employable {
-  String name;
-  Double salary;
-  Integer id;
+  private String name;
+  private Double salary;
+  private Integer id;
 
   public Employee(String name, Double salary, Integer id) {
     this.name = name;
