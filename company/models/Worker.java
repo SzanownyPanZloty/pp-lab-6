@@ -4,8 +4,8 @@ import company.abstracts.Employee;
 
 public final class Worker extends Employee {
 
-  public Worker(String name, Double salary, Integer id) {
-    super(name, salary, id);
+  public Worker(String name, Double salary, Integer id, String hireDate) {
+    super(name, salary, id, hireDate, "Worker");
   }
 
   @Override

@@ -7,10 +7,16 @@ abstract public class Employee implements Employable {
   private Double salary;
   private Integer id;
 
-  public Employee(String name, Double salary, Integer id) {
+  private String hireDate;
+  private String position;
+
+  public Employee(String name, Double salary, Integer id, String hireDate, String position) {
     this.name = name;
     this.salary = salary;
     this.id = id;
+
+    this.hireDate = hireDate;
+    this.position = position;
   }
 
   public String getName() {
@@ -35,6 +41,26 @@ abstract public class Employee implements Employable {
 
   public void setId(Integer id) {
     this.id = id;
+  }
+
+  public String getHireDate() {
+    return this.hireDate;
+  }
+
+  public void setHireDate(String hireDate) {
+    this.hireDate = hireDate;
+  }
+
+  public String getPosition() {
+    return this.position;
+  }
+
+  public void setPosition(String position) {
+    this.position = position;
+  }
+
+  public int hashCode() {
+    return this.id;
   }
 
 }
